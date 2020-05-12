@@ -96,14 +96,14 @@
 	  		border-radius: 10px;
 	  		border: 1px solid #C6C6C6;
 	  		box-shadow: 0px 0px 10px #00000020;
-	  		
+
 	  	}
 	  	.myanimated{
 	  		transition: all ease 0.3s;
 	  	}
 	  	.mycontrol{
 	  		position: absolute;
-	  		display: inline-block;	
+	  		display: inline-block;
 	  		height: 30px;
 	  		left: 10px;
 	  		padding: 0px 5px;
@@ -197,7 +197,7 @@
 	  		margin-top: 0px;
 	  		text-align: center;
 	  		border-radius: 5px;
-	  		margin-left: 10px; 
+	  		margin-left: 10px;
 	  		font-weight:  600;
 	  	}
 	  	.mybuttonyes{
@@ -411,18 +411,18 @@
 	</head>
 	<body onload="init()">
 		<audio id="myAudio">
-			<source src="music.mp3" type="audio/mpeg">
+			<source src="content/audio/music.mp3" type="audio/mpeg">
 			Your browser does not support the audio element.
 		</audio>
 		<audio id="myOpening">
-			<source src="opening.mp3" type="audio/mpeg">
+			<source src="content/audio/opening.mp3" type="audio/mpeg">
 			Your browser does not support the audio element.
 		</audio>
 		<div class="preload">PLEASE WAIT</div>
 		<div class="vidcont myoverlay">
 			<div class="divvideo">
 				<video id="myVideo" width="100%" height="100%">
-				  <source src="video.mp4" type="video/mp4">
+				  <source src="content/videos/video.mp4" type="video/mp4">
 				  Your browser doe`s not support HTML5 video.
 				</video>
 			</div>
@@ -438,7 +438,7 @@
 				<div class="contjam">
 					<div class="jam">-:-</div>
 					<div class="tanggal">-</div>
-					<div class="ucapan myoverlay" onclick="carigoogle()"><span id="spannama2"></span></div>	
+					<div class="ucapan myoverlay" onclick="carigoogle()"><span id="spannama2"></span></div>
 				</div>
 				<div class="shortcut kanan" onclick="toggleFullscreen()">fullscreen</div>
 				<div class="shortcut kiri" onclick="wpblur()">blur</div>
@@ -459,7 +459,7 @@
 					<div class="mybutton">
 						<div class="mybuttonyes" onclick="mywrite()">oke</div>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="mywindow myanimated myhide" id="mywindow" style="width: 500px; height: 240px">
 				<div class="mycontrol">
@@ -468,7 +468,7 @@
 					<div class="mymax"></div>
 				</div>
 				<div class="myheader" id="mywindowheader">
-					halo <span id="spannama"></span>
+					Halo <span id="spannama"></span>
 				</div>
 				<div class="mybody">
 					<div class="mytitle">
@@ -478,8 +478,8 @@
 						Maukah kau menjadi orang yang selalu ada disisiku, yang selalu ada disaat senang ataupun susah, yang selalu ada sampai akhir hayatku?
 					</div>
 					<div class="mybutton">
-						<div class="mybuttonno" onmouseover="move()" onclick="move2()" >tidak</div>
-						<div class="mybuttonyes" onclick="playVid()">iya</div>
+						<div class="mybuttonno" onmouseover="move()" onclick="move2()" >Tidak</div>
+						<div class="mybuttonyes" onclick="playVid()">Iya</div>
 					</div>
 				</div>
 				<div class="myresize"></div>
@@ -498,14 +498,14 @@
 
 	  		*/
 	  		namaku=localStorage.getItem("nama");
-			blur="true"; 
+			blur="true";
 			$(window).on('load',function(){
 				$('.preload').css('background','#00000000').css('color','#FFFFFF00').css('backdrop-filter','blur(0px)').text('SELESAI').css('z-index','-2');
 			});
 	  		function init(){
 	  			startTime();
 	  			stopOpening();
-	  			add='<div class="cc">copyright Andika Sujanadi @2020</div>';
+	  			add='<div class="cc"></div>';
 	  			$('body').append(add);
 	  			if(localStorage.getItem("nama") != null && localStorage.getItem("checked") == "yoi"){
 		  			namaku=localStorage.getItem("nama");
@@ -638,22 +638,22 @@
 			   var element = document.getElementById("mywindow");
 			   element.classList.toggle("myanimated");
 			}
-			var vid = document.getElementById("myVideo"); 
-			function playVid() { 
+			var vid = document.getElementById("myVideo");
+			function playVid() {
 				stopOpening();
 				openFullscreen();
 				$('#myVideo').show();
 				$('.vidcont').fadeIn();
 				localStorage.setItem("checked", "yoi");
 				$('#mywindow').fadeOut(300);
-			  	vid.play(); 
-			} 
+			  	vid.play();
+			}
 			vid.onended = function() {
 				playAudio();
 			    $('.vidcont').fadeOut();
 			    myclock();
 			}
-			function capital_letter(str) 
+			function capital_letter(str)
 			{
 				if (!str){
 					str='noname';
@@ -806,9 +806,9 @@
 					else if(h>9)tulis('siang','selamat bekerja')
 					else if(h>4)tulis('pagi','selamat beraktivitas');
 					else tulis('malam','seharusnya kamu sudah tidur');
-					if(h>18)     document.querySelector('img').src="wp1.png";
-					else if(h>4) document.querySelector('img').src="wp2.png";
-					else         document.querySelector('img').src="wp1.png";
+					if(h>18)     document.querySelector('img').src="content/images/wp1.png";
+					else if(h>4) document.querySelector('img').src="content/images/wp2.png";
+					else         document.querySelector('img').src="content/images/wp1.png";
 				}
 				if(window.btoa($('.cc').text())!='Y29weXJpZ2h0IEFuZGlrYSBTdWphbmFkaSBAMjAyMA=='){
 					if(jalan) $('.container').remove();
@@ -859,7 +859,7 @@
 				else{
 					openFullscreen();
 				}
-			  
+
 			}
 			function mytanggal(){
 				var hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -880,24 +880,24 @@
 					blur="true";
 				}
 			}
-			function playAudio() { 
-				var x = document.getElementById("myAudio"); 
+			function playAudio() {
+				var x = document.getElementById("myAudio");
 				x.volume = 0.15;
-				x.play(); 
+				x.play();
 			}
-			function playOpening() { 
-				var x = document.getElementById("myOpening"); 
+			function playOpening() {
+				var x = document.getElementById("myOpening");
 				x.volume = 0.3;
-				x.play(); 
+				x.play();
 				x.addEventListener("ended",function() {
 					stopOpening();
 				});
 			}
 			function stopOpening(){
-				var x = document.getElementById("myOpening"); 
+				var x = document.getElementById("myOpening");
 				x.pause();
 				x.currentTime = 0;
-				var x = document.getElementById("myAudio"); 
+				var x = document.getElementById("myAudio");
 				x.pause();
 				x.currentTime = 0;
 			}
